@@ -28,7 +28,11 @@ module ParallelTests
 
           ftests = ::ParallelTests::Grouper.by_steps(features, num_groups, options)
           stests = ::ParallelTests::Grouper.in_even_groups_by_size(with_runtime_info(specs), num_groups, options)
-          ftests.zip(stests).map { |t| t.flatten }
+          if ftests.length >= stests.length
+            ftests.zip(stests).map { |t| t.flatten }
+          else
+            stests.zip(ftests).map { |t| t.flatten }
+          end
         end
 
         #
