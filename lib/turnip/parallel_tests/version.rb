@@ -1,5 +1,5 @@
 module Turnip
   module ParallelTests
-    VERSION = "0.0.2"
+    VERSION = "3.4.0"
   end
 end
